@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pillars Company – e-booky pro chlapy</title>
+<meta name="description" content="Krátké praktické e-booky pro chlapy: rozchod, ženy, první rande, sebevědomí, deprese, AI prompty. Koupíš přímo tady, PDF a doklad přijdou e-mailem.">
+<meta property="og:title" content="Pillars Company – e-booky pro chlapy">
+<meta property="og:description" content="Rozchod, ženy, sebevědomí, deprese. Konkrétní kroky, žádné kecy. PDF hned do e-mailu.">
+<meta property="og:image" content="img/balicek.jpg">
+<meta name="theme-color" content="#12171f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2312171f'/%3E%3Cpath fill='%23e8823f' d='M6 8h20v3H6zM8 12h3v11H8zM14.5 12h3v11h-3zM21 12h3v11h-3zM6 24h20v3H6z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,800;100,900&family=Figtree:wght@400;500;600;700&family=Lora:ital,wght@1,500&display=swap">
+<style>
+/* Tmavý svět jako původní web „Pro chlapy“: hero → balíček → všechny knihy → jak nákup funguje → kontakt */
+:root {
+  --bg: #12171f;
+  --surface: #1b232e;
+  --surface-2: #232d3a;
+  --fg: #f2ede5;
+  --muted: #a7afb9;
+  --line: #2f3a48;
+  --accent: #e8823f;
+  --accent-ink: #1a1007;
+  --cream: #f4ece0;
+  --display: "Archivo", "Arial Narrow", "Segoe UI", sans-serif;
+  --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --serif: "Lora", Georgia, serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+a { color: inherit; }
+img { max-width: 100%; }
+.wrap { max-width: 1160px; margin: 0 auto; padding-inline: 16px; }
+@media (min-width: 720px) { .wrap { padding-inline: 24px; } }
+section { padding-block: 56px; scroll-margin-top: 64px; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.02; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+h2 { font-size: clamp(30px, 6vw, 48px); font-weight: 900; }
+.eyebrow { font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.lead { color: var(--muted); max-width: 58ch; margin: 14px 0 0; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font: inherit; font-weight: 800; text-decoration: none; border-radius: 999px; padding: 14px 24px; border: 2px solid var(--accent); cursor: pointer; transition: transform .15s, background .15s; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); }
+.btn.primary:hover { background: #f09452; }
+.btn.ghost { color: var(--fg); border-color: var(--line); background: transparent; }
+.btn:hover { transform: translateY(-2px); }
+.btn:focus-visible, a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* hlavička */
+.top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.logo { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 900; font-size: 20px; letter-spacing: .04em; text-decoration: none; white-space: nowrap; }
+.logo svg { width: 28px; height: 28px; flex: none; }
+.logo span { color: var(--accent); }
+.nav { display: flex; gap: 22px; font-size: 15px; font-weight: 600; }
+.nav a { text-decoration: none; color: var(--muted); }
+.nav a:hover { color: var(--fg); }
+.top .btn { white-space: nowrap; }
+@media (max-width: 760px) { .nav { display: none; } }
+@media (max-width: 400px) { .logo { font-size: 17px; gap: 8px; } .logo svg { width: 24px; height: 24px; } }
+
+/* hero */
+.hero { padding-block: 48px 32px; }
+.hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; }
+.hero h1 { font-size: clamp(40px, 9vw, 82px); font-weight: 900; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .tag { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--muted); margin: 18px 0 26px; max-width: 36ch; }
+.hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 26px; font-size: 14px; color: var(--muted); }
+.facts b { color: var(--fg); }
+.mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.mosaic img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 10px; display: block; box-shadow: 0 20px 50px rgba(0,0,0,.45); }
+.mosaic img:nth-child(odd) { translate: 0 14px; }
+@media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; gap: 36px; } }
+
+/* balíček */
+.bundle { background: var(--surface); border: 2px solid var(--accent); border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: 1.1fr 1fr; }
+.bundle > img { width: 100%; height: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.bundle .body { padding: 28px; display: grid; gap: 14px; align-content: center; }
+.bundle h3 { font-size: clamp(30px, 5vw, 42px); font-weight: 900; }
+.bundle ol { margin: 0; padding-left: 22px; display: grid; gap: 4px; }
+.save { justify-self: start; background: var(--accent); color: var(--accent-ink); font-weight: 800; font-size: 14px; border-radius: 999px; padding: 4px 12px; }
+.was { color: var(--muted); text-decoration: line-through; font-size: 20px; font-weight: 600; margin-right: 8px; }
+@media (max-width: 860px) { .bundle { grid-template-columns: 1fr; } .bundle .body { padding: 22px; } }
+
+/* produkty */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+.filters button { font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; }
+.filters button[aria-pressed="true"] { color: var(--accent-ink); background: var(--fg); border-color: var(--fg); }
+.products { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 26px; }
+@media (max-width: 1000px) { .products { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .products { grid-template-columns: 1fr; } }
+.product { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
+.product[hidden] { display: none; }
+.product img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.product .body { padding: 22px; display: grid; gap: 12px; grid-template-rows: auto auto auto 1fr auto; }
+.product h3 { font-size: 28px; font-weight: 900; }
+.product .sub { font-family: var(--serif); font-style: italic; color: var(--muted); margin: 0; }
+.product ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; align-content: start; font-size: 16px; }
+.product li { padding-left: 24px; position: relative; }
+.product li::before { content: ""; position: absolute; left: 0; top: .66em; width: 12px; height: 3px; background: var(--accent); }
+.buy { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-top: 6px; padding-top: 16px; border-top: 1px solid var(--line); }
+.price { font-family: var(--display); font-weight: 900; font-size: 42px; line-height: 1; font-variant-numeric: tabular-nums; }
+.price small { display: block; margin-top: 6px; font-family: var(--body); font-weight: 500; font-size: 13px; color: var(--muted); }
+.buy .btn { flex: 1 1 140px; }
+
+/* jak nákup funguje */
+.band { background: var(--cream); color: #1d2430; }
+.band .eyebrow { color: #b4561c; }
+.band .lead { color: #4b5563; }
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin-top: 32px; counter-reset: s; }
+@media (max-width: 760px) { .steps { grid-template-columns: 1fr; gap: 20px; } }
+.steps div { counter-increment: s; display: grid; gap: 6px; }
+.steps div::before { content: counter(s); font-family: var(--display); font-weight: 900; font-size: 44px; color: #b4561c; line-height: 1; }
+.steps b { font-size: 19px; }
+.steps p { margin: 0; color: #4b5563; }
+.faq { margin-top: 36px; display: grid; gap: 10px; max-width: 760px; }
+.faq details { background: #fff; border: 1px solid #e3d8c8; border-radius: 12px; padding: 14px 18px; }
+.faq summary { font-weight: 700; cursor: pointer; }
+.faq p { margin: 10px 0 0; color: #4b5563; }
+
+/* kontakt */
+.contact { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+@media (max-width: 860px) { .contact { grid-template-columns: 1fr; } }
+.mail { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 18px; }
+.mail code { font-family: var(--body); font-size: 18px; font-weight: 600; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; user-select: all; overflow-wrap: anywhere; }
+.socials { display: grid; gap: 12px; }
+.socials a { display: flex; align-items: center; gap: 14px; text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; font-weight: 700; }
+.socials a:hover { border-color: var(--accent); }
+.socials svg { width: 26px; height: 26px; flex: none; fill: var(--accent); }
+.socials small { display: block; font-weight: 500; color: var(--muted); }
+
+footer { border-top: 1px solid var(--line); padding-block: 32px 40px; font-size: 14px; color: var(--muted); }
+footer .wrap { display: grid; gap: 14px; }
+footer b { color: var(--fg); }
+.flinks { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.flinks a { color: var(--fg); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#e8823f" d="M5 6h22v3H5zM7.5 10.5h3.5v12H7.5zM14.25 10.5h3.5v12h-3.5zM21 10.5h3.5v12H21zM5 24h22v3H5z"/></svg>
+      PILLARS <span>COMPANY</span>
+    </a>
+    <nav class="nav" aria-label="Hlavní">
+      <a href="#balicek">Balíček</a>
+      <a href="#knihy">Všechny knihy</a>
+      <a href="#nakup">Jak nákup funguje</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="btn primary" href="#knihy" style="padding:9px 18px;font-size:15px">E-shop</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Pillars Company · e-booky pro chlapy</div>
+        <h1>Pilíře, o které se dá <em>opřít.</em></h1>
+        <p class="tag">Rozchod, ženy, první rande, sebevědomí, těžké dny. Krátké návody s konkrétními kroky, žádné motivační kecy.</p>
+        <div class="ctas">
+          <a class="btn primary" href="#knihy">Vybrat knihu</a>
+          <a class="btn ghost" href="#balicek">Balíček za 19,90 €</a>
+        </div>
+        <div class="facts">
+          <span><b>8</b> e-booků</span>
+          <span><b>PDF</b> hned do e-mailu</span>
+          <span><b>Doklad</b> o koupi automaticky</span>
+        </div>
+      </div>
+      <div class="mosaic" aria-hidden="true">
+        <img src="img/po-rozchodu.jpg" alt="">
+        <img src="img/sebevedomi.jpg" alt="">
+        <img src="img/klic.jpg" alt="">
+        <img src="img/prvni-rande.jpg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section id="balicek" style="padding-top:16px">
+    <div class="wrap">
+      <article class="bundle">
+        <img src="img/balicek.jpg" alt="Obálka Balíček – 4 e-booky pro chlapy" loading="lazy">
+        <div class="body">
+          <span class="save">Ušetříš 11,70 €</span>
+          <div class="eyebrow">Nejvýhodnější · 4 e-booky · 105 stran</div>
+          <h3>Kompletní balíček</h3>
+          <ol>
+            <li>Po rozchodu</li>
+            <li>Jak oslovit ženu</li>
+            <li>Sebevědomí</li>
+            <li>KLÍČ</li>
+          </ol>
+          <div class="buy">
+            <div class="price"><span class="was">31,60 €</span>19,90 €<small>jednorázově · 4× PDF</small></div>
+            <a class="btn primary" href="https://petrsvetr.gumroad.com/l/balicek">Koupit balíček</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="knihy" style="padding-top:24px">
+    <div class="wrap">
+      <div class="eyebrow">E-shop</div>
+      <h2>Vyber si, co teď řešíš.</h2>
+      <div class="filters" role="group" aria-label="Filtr témat">
+        <button type="button" data-filter="vse" aria-pressed="true">Vše</button>
+        <button type="button" data-filter="zeny" aria-pressed="false">Ženy a vztahy</button>
+        <button type="button" data-filter="hlava" aria-pressed="false">Hlava</button>
+        <button type="button" data-filter="prakticke" aria-pressed="false">Praktické</button>
+      </div>
+      <div class="products">
+
+        <article class="product" data-tema="zeny">
+          <img src="img/po-rozchodu.jpg" alt="Obálka e-booku Po rozchodu" loading="lazy">
+          <div class="body">
+            <div class="eyebrow">21denní plán · 35 stran</div>
+            <h3>Po rozchodu</h3>
+            <p class="sub">Pro chlapy, kteří se chtějí znovu postavit na nohy.</p>
+            <ul>
+              <li>Každý den jeden krátký úkol a jedna otázka</li>
+              <li>Nouzová tlačítka, když jí chceš napsat</li>
+              <li>Tabulka na odškrtávání 21 dní</li>
+            </ul>
+            <div class="buy">
+              <div class="price">9,90 €<small>jednorázově, PDF</small></div>
+              <a class="btn primary" href="https://petrsvetr.gumroad.com/l/po-rozchodu">Koupit</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-tema="zeny">
+          <img src="img/jak-oslovit.jpg" alt="Obálka e-booku Jak oslovit ženu" loading="lazy">
+          <div class="body">
+            <div class="eyebrow">14denní plán · 34 stran</div>
+            <h3>Jak oslovit ženu</h3>
+            <p class="sub">Bez trapných hlášek, bez toho, abys vypadal jako creep.</p>
+            <ul>
+              <li>Jak zklidnit nervy hned na místě</li>
+              <li>7 situací: kdy to má smysl a co říct</li>
+              <li>Věty, které můžeš použít doslova</li>
+            </ul>
+            <div class="buy">
+              <div class="price">7,90 €<small>jednorázově, PDF</small></div>
+              <a class="btn primary" href="https://petrsvetr.gumroad.com/l/esfglq">Koupit</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-tema="zeny">
+          <img src="img/prvni-rande.jpg" alt="Obálka e-booku První rande" loading="lazy">
+          <div class="body">
+            <div class="eyebrow">Novinka · světlá i tmavá verze</div>
+            <h3>První rande</h3>
+            <p class="sub">Celý večer od první zprávy až po „na shledanou“.</p>
+            <ul>
+              <li>Kam jít, co si vzít na sebe, kdo platí</li>
+              <li>O čem mluvit, když se hovor zasekne</li>
+              <li>Jak to ukončit, aby chtěla druhé</li>
+            </ul>
+            <div class="buy">
+              <div class="price">6,90 €<small>jednorázově, PDF</small></div>
+              <a class="btn primary" href="https://petrsvetr.gumroad.com/l/prvni-rande">Koupit</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-tema="hlava">
+          <img src="img/sebevedomi.jpg" alt="Obálka sešitu Sebevědomí" loading="lazy">
+          <div class="body">
+            <div class="eyebrow">Pracovní sešit · 15 stran</div>
+            <h3>Sebevědomí</h3>
+            <p class="sub">Jak si ho vybudovat a udržet. Cviky, ne motivační řeči.</p>
+            <ul>
+              <li>Jak ztišit vnitřního kritika</li>
+              <li>Hranice: jak klidně říct „ne“</li>
+              <li>21denní plán, jeden krok denně</li>
+            </ul>
+            <div class="buy">
+              <div class="price">6,90 €<small>jednorázově, PDF</small></div>
+              <a class="btn primary" href="https://petrsvetr.gumroad.com/l/sebevedomi">Koupit</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-tema="hlava">
+          <img src="img/klic.jpg" alt="Obálka e-booku KLÍČ" loading="lazy">
+          <div class="body">
+            <div class="eyebrow">1. díl · 21 stran</div>
+            <h3>KLÍČ</h3>
+            <p class="sub">Když to není jen smutek. Deprese u chlapů a jejich blízkých.</p>
+            <ul>
+              <li>Jak deprese vypadá u chlapů</li>
+              <li>Kdy jít k lékaři a jak funguje léčba</li>
+              <li>Krizový plán a kontakty v ČR i SR</li>
+            </ul>
+            <div class="buy">
+              <div class="price">6,90 €<small>jednorázově, PDF</small></div>
+              <a class="btn primary" href="https://petrsvetr.gumroad.com/l/klic">Koupit</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-tema="hlava">
+          <img src="img/abys-vedel.jpg" alt="Obálka e-booku Abys věděl" loading="lazy">
+          <div class="body">
+            <div class="eyebrow">2. díl KLÍČE · 31 stran, ilustrované</div>
+            <h3>„Abys věděl“</h3>
+            <p class="sub">Jak se vyznat ve vlastní depresi. Jde hlouběji než KLÍČ.</p>
+            <ul>
+              <li>Odkud se deprese bere a co dělá s tělem</li>
+              <li>Léky i terapie a proč nečekat</li>
+              <li>4 pracovní listy k lékaři</li>
+            </ul>
+            <div class="buy">
+              <div class="price">7,90 €<small>jednorázově, PDF</small></div>
+              <a class="btn primary" href="https://petrsvetr.gumroad.com/l/abys-vedel">Koupit</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-tema="prakticke">
+          <img src="img/prompty.jpg" alt="Obálka Prompty pre chlapov" loading="lazy">
+          <div class="body">
+            <div class="eyebrow">39 promptů · ve slovenštině</div>
+            <h3>Prompty pre chlapov</h3>
+            <p class="sub">Hotová zadání pro ChatGPT, Claude i Gemini.</p>
+            <ul>
+              <li>Životopis, pohovor, vyšší mzda</li>
+              <li>Reklamace, dopis na úřad, inzerát</li>
+              <li>Zpráva po hádce, rande, dárek</li>
+            </ul>
+            <div class="buy">
+              <div class="price">4,90 €<small>jednorázově, PDF</small></div>
+              <a class="btn primary" href="https://petrsvetr.gumroad.com/l/prompty">Koupit</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="nakup" class="band">
+    <div class="wrap">
+      <div class="eyebrow">Jak nákup funguje</div>
+      <h2>Za minutu to máš v mobilu.</h2>
+      <p class="lead">Platba proběhne přímo tady na stránce. Prodej zajišťuje Gumroad, platforma pro digitální produkty.</p>
+      <div class="steps">
+        <div><b>Klikneš na Koupit</b><p>Otevře se okno s platbou, nemusíš nikam odcházet.</p></div>
+        <div><b>Zaplatíš kartou nebo PayPalem</b><p>Cena v eurech, DPH už je v ní.</p></div>
+        <div><b>PDF a doklad přijdou e-mailem</b><p>Odkaz ke stažení hned po zaplacení, k tomu potvrzení o koupi.</p></div>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Dostanu doklad o koupi?</summary>
+          <p>Ano. Gumroad ti hned po platbě pošle e-mail s potvrzením o koupi a odkazem ke stažení. Prodejcem je Gumroad, ten řeší i DPH.</p>
+        </details>
+        <details>
+          <summary>Na čem si to přečtu?</summary>
+          <p>Na mobilu, tabletu i v počítači. Je to PDF, u většiny knih ve světlé i tmavé verzi.</p>
+        </details>
+        <details>
+          <summary>Ztratil jsem odkaz ke stažení.</summary>
+          <p>Najdi e-mail od Gumroadu, odkaz v něm platí dál. Když ho nenajdeš, napiš mi.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="wrap contact">
+      <div>
+        <div class="eyebrow">Kontakt</div>
+        <h2>Napiš mi.</h2>
+        <p class="lead">Dotaz ke knize, problém s nákupem nebo nápad na další téma.</p>
+        <div class="mail">
+          <code>petrsvetr272@gmail.com</code>
+          <a class="btn ghost" href="mailto:petrsvetr272@gmail.com" style="padding:10px 18px">Napsat e-mail</a>
+        </div>
+      </div>
+      <div class="socials">
+        <a href="https://www.facebook.com/1381941004992291" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+          <span>Facebook<small>Plan pro chlapy</small></span>
+        </a>
+        <a href="https://www.instagram.com/prijmeni._jmeno/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 4.7a5.1 5.1 0 1 0 0 10.2 5.1 5.1 0 0 0 0-10.2zm0 8.4a3.3 3.3 0 1 1 0-6.6 3.3 3.3 0 0 1 0 6.6zm5.3-9.8a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg>
+          <span>Instagram<small>@prijmeni._jmeno</small></span>
+        </a>
+        <a href="https://petrsvetr.gumroad.com" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7V6a5 5 0 0 1 10 0v1h3.5l-1 15h-15l-1-15H7zm2 0h6V6a3 3 0 0 0-6 0v1z"/></svg>
+          <span>Gumroad<small>petrsvetr.gumroad.com</small></span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b>Pillars Company</b> · e-booky pro chlapy</div>
+    <div class="flinks">
+      <a href="https://www.facebook.com/1381941004992291" target="_blank" rel="noopener">FB Plan pro chlapy</a>
+      <a href="https://www.instagram.com/prijmeni._jmeno/" target="_blank" rel="noopener">IG @prijmeni._jmeno</a>
+      <a href="https://petrsvetr.gumroad.com" target="_blank" rel="noopener">Gumroad</a>
+    </div>
+    <div>Prodej a platby zajišťuje Gumroad, Inc. jako prodejce (merchant of record), včetně dokladu o koupi a DPH.</div>
+    <div>Knihy slouží k osobnímu rozvoji a osvětě a nenahrazují odbornou psychologickou, lékařskou ani právní pomoc. Když je ti zle a nevíš kudy kam: Česko, Linka první psychické pomoci <b>116 123</b> · Slovensko, Linka dôvery Nezábudka <b>0800 800 566</b> · v ohrožení života <b>112</b>.</div>
+  </div>
+</footer>
+
+<script>
+// Filtr témat
+const btns = document.querySelectorAll(".filters button");
+btns.forEach((b) => b.addEventListener("click", () => {
+  btns.forEach((x) => x.setAttribute("aria-pressed", x === b));
+  const f = b.dataset.filter;
+  document.querySelectorAll(".product").forEach((p) => { p.hidden = f !== "vse" && p.dataset.tema !== f; });
+}));
+</script>
+<!-- Gumroad overlay checkout: odkazy na petrsvetr.gumroad.com/l/... otevře jako platební okno přímo na stránce -->
+<script src="https://gumroad.com/js/gumroad.js"></script>
+<script>
+// Pojistka: na mobilu Gumroad někdy nepošle výšku okna a to zůstane prázdné → okno má aspoň výšku obrazovky
+function gumroadMinHeight() {
+  const host = [...document.body.children].find((e) => e.shadowRoot && e.shadowRoot.querySelector("iframe"));
+  if (!host) return false;
+  const s = document.createElement("style");
+  s.textContent = "iframe { min-height: calc(100vh - 32px); min-height: calc(100dvh - 32px); background: #fff; }";
+  host.shadowRoot.appendChild(s);
+  return true;
+}
+window.addEventListener("load", () => { if (!gumroadMinHeight()) setTimeout(gumroadMinHeight, 1500); });
+</script>
+</body>
+</html>
