@@ -133,6 +133,24 @@ h2 { font-size: clamp(30px, 6vw, 48px); font-weight: 900; }
 .socials svg { width: 26px; height: 26px; flex: none; fill: var(--accent); }
 .socials small { display: block; font-weight: 500; color: var(--muted); }
 
+/* obrazy */
+.art { columns: 3 260px; column-gap: 18px; margin-top: 30px; }
+.art-wide { margin-top: 30px; max-width: 760px; }
+.art-wide figure, .art figure { break-inside: avoid; margin: 0 0 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.art figcaption small, .art-wide figcaption small { display: block; color: var(--muted); font-size: 14px; }
+.art-wide figure { margin: 0; }
+.art button.zoom, .art-wide button.zoom { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.art-wide img, .art img { width: 100%; display: block; }
+.art-wide figcaption, .art figcaption { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 14px; }
+.art-wide figcaption b, .art figcaption b { font-family: var(--display); font-weight: 800; font-size: 19px; }
+.art-wide figcaption .p, .art figcaption .p { font-family: var(--display); font-weight: 900; font-size: 24px; white-space: nowrap; }
+.art .ask { font-size: 14px; padding: 8px 14px; white-space: nowrap; }
+dialog.lb { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 96vh; }
+dialog.lb::backdrop { background: rgba(0,0,0,.88); }
+dialog.lb img { max-width: 96vw; max-height: 86vh; display: block; border-radius: 8px; }
+dialog.lb p { color: #fff; text-align: center; margin: 10px 0 0; font-weight: 700; }
+dialog.lb button { position: fixed; top: 12px; right: 12px; font: inherit; font-size: 26px; line-height: 1; width: 44px; height: 44px; border-radius: 999px; border: 0; background: #fff; color: #000; cursor: pointer; }
+
 footer { border-top: 1px solid var(--line); padding-block: 32px 40px; font-size: 14px; color: var(--muted); }
 footer .wrap { display: grid; gap: 14px; }
 footer b { color: var(--fg); }
@@ -151,6 +169,7 @@ footer b { color: var(--fg); }
     <nav class="nav" aria-label="Hlavní">
       <a href="#balicek">Balíček</a>
       <a href="#knihy">Všechny knihy</a>
+      <a href="#obrazy">Obrazy</a>
       <a href="#nakup">Jak nákup funguje</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
@@ -349,6 +368,86 @@ footer b { color: var(--fg); }
     </div>
   </section>
 
+  <section id="obrazy" style="padding-top:24px">
+    <div class="wrap">
+      <div class="eyebrow">Obrazy · originály</div>
+      <h2>Maluju i rukama.</h2>
+      <p class="lead">Originální malby na plátně, každá je jen jednou. Klikni na obraz a uvidíš ho celý. Když tě nějaký chytne, napiš a domluvíme cenu i předání.</p>
+      <div class="art-wide">
+        <figure data-cena="180 €" data-rozmer="140 × 70 cm" class="wide">
+          <button type="button" class="zoom" aria-label="Zvětšit obraz Kočka a pes"><img src="img/obrazy/12-kocka-a-pes.jpg" alt="Obraz Kočka a pes" loading="lazy"></button>
+          <figcaption><span><b>Kočka a pes</b><small class="rz"></small></span><span class="p" hidden></span><a class="btn primary ask" href="mailto:petrsvetr272@gmail.com?subject=Obraz%3A%20Ko%C4%8Dka%20a%20pes">Mám zájem</a></figcaption>
+        </figure>
+      </div>
+      <div class="art">
+        <figure data-cena="140 €" data-rozmer="">
+          <button type="button" class="zoom" aria-label="Zvětšit obraz Slunce a stroje"><img src="img/obrazy/01-slunce.jpg" alt="Obraz Slunce a stroje" loading="lazy"></button>
+          <figcaption><span><b>Slunce a stroje</b><small class="rz"></small></span><span class="p" hidden></span><a class="btn primary ask" href="mailto:petrsvetr272@gmail.com?subject=Obraz%3A%20Slunce%20a%20stroje">Mám zájem</a></figcaption>
+        </figure>
+        <figure data-cena="" data-rozmer="">
+          <button type="button" class="zoom" aria-label="Zvětšit obraz Abstrakce"><img src="img/obrazy/02-abstrakce.jpg" alt="Obraz Abstrakce" loading="lazy"></button>
+          <figcaption><span><b>Abstrakce</b><small class="rz"></small></span><span class="p" hidden></span><a class="btn primary ask" href="mailto:petrsvetr272@gmail.com?subject=Obraz%3A%20Abstrakce">Mám zájem</a></figcaption>
+        </figure>
+        <figure data-cena="" data-rozmer="">
+          <button type="button" class="zoom" aria-label="Zvětšit obraz Barevný ksicht"><img src="img/obrazy/03-neon-brain.jpg" alt="Obraz Barevný ksicht" loading="lazy"></button>
+          <figcaption><span><b>Barevný ksicht</b><small class="rz"></small></span><span class="p" hidden></span><a class="btn primary ask" href="mailto:petrsvetr272@gmail.com?subject=Obraz%3A%20Barevn%C3%BD%20ksicht">Mám zájem</a></figcaption>
+        </figure>
+        <figure data-cena="50 €" data-rozmer="40 × 50 cm">
+          <button type="button" class="zoom" aria-label="Zvětšit obraz Tunel"><img src="img/obrazy/04-tunel.jpg" alt="Obraz Tunel" loading="lazy"></button>
+          <figcaption><span><b>Tunel</b><small class="rz"></small></span><span class="p" hidden></span><a class="btn primary ask" href="mailto:petrsvetr272@gmail.com?subject=Obraz%3A%20Tunel">Mám zájem</a></figcaption>
+        </figure>
+        <figure data-cena="" data-rozmer="30 × 20 cm">
+          <button type="button" class="zoom" aria-label="Zvětšit obraz Tváře"><img src="img/obrazy/05-tvare.jpg" alt="Obraz Tváře" loading="lazy"></button>
+          <figcaption><span><b>Tváře</b><small class="rz"></small></span><span class="p" hidden></span><a class="btn primary ask" href="mailto:petrsvetr272@gmail.com?subject=Obraz%3A%20Tv%C3%A1%C5%99e">Mám zájem</a></figcaption>
+        </figure>
+        <figure data-cena="80 €" data-rozmer="">
+          <button type="button" class="zoom" aria-label="Zvětšit obraz Oko"><img src="img/obrazy/06-oko.jpg" alt="Obraz Oko" loading="lazy"></button>
+          <figcaption><span><b>Oko</b><small class="rz"></small></span><span class="p" hidden></span><a class="btn primary ask" href="mailto:petrsvetr272@gmail.com?subject=Obraz%3A%20Oko">Mám zájem</a></figcaption>
+        </figure>
+        <figure data-cena="80 €" data-rozmer="50 × 70 cm">
+          <button type="button" class="zoom" aria-label="Zvětšit obraz Strom a odraz"><img src="img/obrazy/07-strom.jpg" alt="Obraz Strom a odraz" loading="lazy"></button>
+          <figcaption><span><b>Strom a odraz</b><small class="rz"></small></span><span class="p" hidden></span><a class="btn primary ask" href="mailto:petrsvetr272@gmail.com?subject=Obraz%3A%20Strom%20a%20odraz">Mám zájem</a></figcaption>
+        </figure>
+        <figure data-cena="50 €" data-rozmer="40 × 50 cm">
+          <button type="button" class="zoom" aria-label="Zvětšit obraz Ketchup Space City"><img src="img/obrazy/08-mesto.jpg" alt="Obraz Ketchup Space City" loading="lazy"></button>
+          <figcaption><span><b>Ketchup Space City</b><small class="rz"></small></span><span class="p" hidden></span><a class="btn primary ask" href="mailto:petrsvetr272@gmail.com?subject=Obraz%3A%20Ketchup%20Space%20City">Mám zájem</a></figcaption>
+        </figure>
+        <figure data-cena="100 €" data-rozmer="50 × 70 cm">
+          <button type="button" class="zoom" aria-label="Zvětšit obraz Oči"><img src="img/obrazy/09-oci.jpg" alt="Obraz Oči" loading="lazy"></button>
+          <figcaption><span><b>Oči</b><small class="rz"></small></span><span class="p" hidden></span><a class="btn primary ask" href="mailto:petrsvetr272@gmail.com?subject=Obraz%3A%20O%C4%8Di">Mám zájem</a></figcaption>
+        </figure>
+        <figure data-cena="100 €" data-rozmer="50 × 70 cm">
+          <button type="button" class="zoom" aria-label="Zvětšit obraz Postava"><img src="img/obrazy/10-postava.jpg" alt="Obraz Postava" loading="lazy"></button>
+          <figcaption><span><b>Postava</b><small class="rz"></small></span><span class="p" hidden></span><a class="btn primary ask" href="mailto:petrsvetr272@gmail.com?subject=Obraz%3A%20Postava">Mám zájem</a></figcaption>
+        </figure>
+        <figure data-cena="100 €" data-rozmer="50 × 70 cm">
+          <button type="button" class="zoom" aria-label="Zvětšit obraz Dvojice"><img src="img/obrazy/11-dvojice.jpg" alt="Obraz Dvojice" loading="lazy"></button>
+          <figcaption><span><b>Dvojice</b><small class="rz"></small></span><span class="p" hidden></span><a class="btn primary ask" href="mailto:petrsvetr272@gmail.com?subject=Obraz%3A%20Dvojice">Mám zájem</a></figcaption>
+        </figure>
+        <figure data-cena="80 €" data-rozmer="50 × 70 cm">
+          <button type="button" class="zoom" aria-label="Zvětšit obraz Portrét"><img src="img/obrazy/13-portret.jpg" alt="Obraz Portrét" loading="lazy"></button>
+          <figcaption><span><b>Portrét</b><small class="rz"></small></span><span class="p" hidden></span><a class="btn primary ask" href="mailto:petrsvetr272@gmail.com?subject=Obraz%3A%20Portr%C3%A9t">Mám zájem</a></figcaption>
+        </figure>
+        <figure data-cena="70 €" data-rozmer="50 × 50 cm">
+          <button type="button" class="zoom" aria-label="Zvětšit obraz Technopes"><img src="img/obrazy/14-technopes.jpg" alt="Obraz Technopes" loading="lazy"></button>
+          <figcaption><span><b>Technopes</b><small class="rz"></small></span><span class="p" hidden></span><a class="btn primary ask" href="mailto:petrsvetr272@gmail.com?subject=Obraz%3A%20Technopes">Mám zájem</a></figcaption>
+        </figure>
+        <figure data-cena="80 €" data-rozmer="50 × 70 cm">
+          <button type="button" class="zoom" aria-label="Zvětšit obraz Ruch ulice"><img src="img/obrazy/15-ruch-ulice.jpg" alt="Obraz Ruch ulice" loading="lazy"></button>
+          <figcaption><span><b>Ruch ulice</b><small class="rz"></small></span><span class="p" hidden></span><a class="btn primary ask" href="mailto:petrsvetr272@gmail.com?subject=Obraz%3A%20Ruch%20ulice">Mám zájem</a></figcaption>
+        </figure>
+        <figure data-cena="80 €" data-rozmer="70 × 50 cm">
+          <button type="button" class="zoom" aria-label="Zvětšit obraz Barevné kruhy"><img src="img/obrazy/16-barevne-kruhy.jpg" alt="Obraz Barevné kruhy" loading="lazy"></button>
+          <figcaption><span><b>Barevné kruhy</b><small class="rz"></small></span><span class="p" hidden></span><a class="btn primary ask" href="mailto:petrsvetr272@gmail.com?subject=Obraz%3A%20Barevn%C3%A9%20kruhy">Mám zájem</a></figcaption>
+        </figure>
+        <figure data-cena="50 €" data-rozmer="40 × 50 cm">
+          <button type="button" class="zoom" aria-label="Zvětšit obraz Kočka a UFO"><img src="img/obrazy/17-kocka-ufo.jpg" alt="Obraz Kočka a UFO" loading="lazy"></button>
+          <figcaption><span><b>Kočka a UFO</b><small class="rz"></small></span><span class="p" hidden></span><a class="btn primary ask" href="mailto:petrsvetr272@gmail.com?subject=Obraz%3A%20Ko%C4%8Dka%20a%20UFO">Mám zájem</a></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <section id="nakup" class="band">
     <div class="wrap">
       <div class="eyebrow">Jak nákup funguje</div>
@@ -417,6 +516,23 @@ footer b { color: var(--fg); }
     <div>Knihy slouží k osobnímu rozvoji a osvětě a nenahrazují odbornou psychologickou, lékařskou ani právní pomoc. Když je ti zle a nevíš kudy kam: Česko, Linka první psychické pomoci <b>116 123</b> · Slovensko, Linka dôvery Nezábudka <b>0800 800 566</b> · v ohrožení života <b>112</b>.</div>
   </div>
 </footer>
+
+<dialog class="lb" id="lb"><img alt=""><p></p><button type="button" aria-label="Zavřít">×</button></dialog>
+<script>
+// Obrazy: zvětšení na celou obrazovku, cena se ukáže, když je vyplněná v data-cena
+const lb = document.getElementById("lb");
+document.querySelectorAll(".art figure, .art-wide figure").forEach((f) => {
+  if (f.dataset.rozmer) f.querySelector(".rz").textContent = f.dataset.rozmer;
+  if (f.dataset.cena) { const p = f.querySelector(".p"); p.textContent = f.dataset.cena; p.hidden = false; }
+  f.querySelector(".zoom").addEventListener("click", () => {
+    const img = f.querySelector("img");
+    lb.querySelector("img").src = img.src; lb.querySelector("img").alt = img.alt;
+    lb.querySelector("p").textContent = f.querySelector("b").textContent + (f.dataset.rozmer ? " · " + f.dataset.rozmer : "") + (f.dataset.cena ? " · " + f.dataset.cena : "");
+    lb.showModal();
+  });
+});
+lb.addEventListener("click", () => lb.close());
+</script>
 
 <script>
 // Filtr témat
